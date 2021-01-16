@@ -14,18 +14,52 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     
     <!--My Stylesheet link-->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>UberEats WebScrape</title>
 </head>
 <body>
-    <h1>Let's Find Uber Eats Deals</h1>
-    <form id="address">
-        <label>Enter your Address</label>
-        <input type="text" placeholder="Address" id="address-text">
-        <button type="submit">Find Deals</button>
-    </form>
+    <div id='main'>
+        <div class="container">
+            <div class="row justify-content-center mb-1">
+                <h1>Let's Find <span id='black'>Uber</span><span id='green'>Eats</span> Deals</h1>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <h5>Enter your address to find the restaurants near you</h5>
+            </div>
+            <div class="row justify-content-center">
+                <form id="address" class="input-group col-sm-8 col-md-7 col-lg-6">
+                    <input type="text" class="form-control" placeholder="Address" id="address-text">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary form-control" type="submit">Find Deals</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <div id='load' class='hide'>
+        
+        <div class="row justify-content-center mb-5">
+            <h5>It could take time to find the restaurants.</h5>
+        </div>
+        <div class="row justify-content-center">
+            <div class="loading">
+                <span class="loading__letter">S</span>
+                <span class="loading__letter">e</span>
+                <span class="loading__letter">a</span>
+                <span class="loading__letter">r</span>
+                <span class="loading__letter">c</span>
+                <span class="loading__letter">h</span>
+                <span class="loading__letter">i</span>
+                <span class="loading__letter">n</span>
+                <span class="loading__letter">g</span>
+                <span class="loading__letter">.</span>
+                <span class="loading__letter">.</span>
+                <span class="loading__letter">.</span>
+            </div>
+        </div>
+    </div>
     <!--javascript files-->
     <script src="./assets/js/index.js"></script>
 </body>

@@ -7,7 +7,8 @@ submitBtn.addEventListener("submit", (e) =>{
     const postObj = {
         address: addressText
     }
-
+    document.getElementById('main').setAttribute('class','hide');
+    document.getElementById('load').removeAttribute('class')
     fetch('/api/scrape', {
         method: "POST",
         headers: {

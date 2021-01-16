@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Press+Start+2P&family=Roboto&display=swap');
+
+body {
+    background-color:#b8e3c3;
+    margin: 50px;
+}
+.hide {
+    visibility: hidden;
+}
+
+#black{
+    color: #162328;
+    font-family: 'Roboto', sans-serif;
+}
+#green{
+    color:#3fc060;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.loading {
+    font-size: max(16px,2vw);
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+    color: #fec468;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px);
+    }
+    40% {
+        transform: translateY(-40px);
+    }
+    80%,
+    100% {
+        transform: translateY(0px);
+    }
+}
