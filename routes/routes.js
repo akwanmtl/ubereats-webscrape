@@ -1,5 +1,7 @@
-const scrape = require("../controllers/scrape.js")
+const scrape = require("../controllers/scrape.js");
+const extendTimeoutMiddleware = require("../controllers/extendedTimeOut.js")
 var path = require("path");
+const { emitWarning } = require("process");
 module.exports = (app) => {
 
     // let data = [
@@ -109,11 +111,14 @@ module.exports = (app) => {
     //     }
     //   ]
     
+    // app.use(extendTimeoutMiddleware);
 
-    app.post("/api/scrape", (req,res)=>{
+    app.post("/api/scrape",extendTimeoutMiddleware, (req,res)=>{
       scrape(req.body).then(data =>{
+        console.log('found')
         console.log(data)
-        res.json(data)
+        res.write(JSON.stringify(data));
+        res.end();
       })
     })
 
