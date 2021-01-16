@@ -27,7 +27,7 @@ const scrape = async (scrapeObj) =>{
     await page.keyboard.press('Enter');
 
 
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < 1; i++){
         await showMore(page);
     }
     
