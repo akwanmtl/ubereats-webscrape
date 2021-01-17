@@ -13,5 +13,5 @@ restaurantsList.forEach((restaurant,index) =>{
 
 const newSearchBtn = document.getElementById('new-search');
 newSearchBtn.addEventListener('click',()=>{
-    window.location.replace("/index");
+    window.location.replace("/");
 })
