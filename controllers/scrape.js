@@ -17,6 +17,7 @@ const scrape = async (scrapeObj) =>{
     const browser = await puppeteer.launch(chromeOptions);
     const page = await browser.newPage();
     await page.goto('https://www.ubereats.com/ca');
+    // page.setDefaultTimeout(0)
    
     await page.waitFor('input[name=searchTerm]');
 
@@ -28,20 +29,18 @@ const scrape = async (scrapeObj) =>{
 
     let status;
     for(let i = 0; i < 8; i++){
-        
         status = await showMore(page);
         if(!status) break;
     }
-    
-    if(status){
+    if(!status){
         try{
             await page.waitForXPath("//button[contains(text(), 'Show more')]")
         }
         catch(e){
-            console.log('no more button')
+            console.log('no more button');
         }
     }
-    
+   
 
     // Scrape
     const xpath_links = "//div[contains(text(), 'Buy 1, Get 1 Free')]/following-sibling::a";
@@ -83,15 +82,15 @@ const showMore = async (page) =>{
     try{
         await page.waitForXPath("//button[contains(text(), 'Show more')]")
         const button = await page.$x("//button[contains(text(), 'Show more')]");
-        
-        console.log('pinging')
         await button[0].click();
+        console.log('pinging');
         return true;
     }
-    catch(e){
-        console.log('no more button inside');
-        return false
+    catch (e){
+        console.log('no more button')
+        return false;
     }
+    
 }
 
 module.exports = scrape;

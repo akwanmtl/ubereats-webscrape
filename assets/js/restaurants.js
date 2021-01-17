@@ -10,9 +10,3 @@ restaurantsList.forEach((restaurant,index) =>{
     let li = `<a href="${restaurant.url}" target="_blank" class="list-group-item list-group-item-action col-sm-4 ${colour}">${restaurant.name}</a>`;
     listDiv.innerHTML += li;
 })
-
-const newSearchBtn = document.getElementById("new-search");
-
-newSearchBtn.addEventListener("click",()=>{
-    window.location.replace("/");
-})
