@@ -26,12 +26,22 @@ const scrape = async (scrapeObj) =>{
 
     await page.keyboard.press('Enter');
 
-
-    for(let i = 0; i < 6; i++){
-        await showMore(page);
+    let status;
+    for(let i = 0; i < 8; i++){
+        
+        status = await showMore(page);
+        if(!status) break;
     }
     
-    await page.waitForXPath("//button[contains(text(), 'Show more')]")
+    if(status){
+        try{
+            await page.waitForXPath("//button[contains(text(), 'Show more')]")
+        }
+        catch(e){
+            console.log('no more button')
+        }
+    }
+    
 
     // Scrape
     const xpath_links = "//div[contains(text(), 'Buy 1, Get 1 Free')]/following-sibling::a";
@@ -70,14 +80,17 @@ const scrape = async (scrapeObj) =>{
 }
 
 const showMore = async (page) =>{
-    await page.waitForXPath("//button[contains(text(), 'Show more')]")
-    const button = await page.$x("//button[contains(text(), 'Show more')]");
-    if (button.length > 0) {
-        console.log('hello')
+    try{
+        await page.waitForXPath("//button[contains(text(), 'Show more')]")
+        const button = await page.$x("//button[contains(text(), 'Show more')]");
+        
+        console.log('pinging')
         await button[0].click();
-    } 
-    else {
-        throw new Error("Link not found");
+        return true;
+    }
+    catch(e){
+        console.log('no more button inside');
+        return false
     }
 }
 
