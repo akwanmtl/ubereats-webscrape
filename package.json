@@ -1,8 +1,8 @@
 {
-  "name": "webscrape",
+  "name": "ubereatwebscrape",
   "version": "1.0.0",
   "description": "",
-  "main": "scrape.js",
+  "main": "main.js",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
@@ -10,14 +10,14 @@
     "puppeteer": "^5.5.0"
   },
   "devDependencies": {
+    "electron": "^11.2.0",
     "electron-packager": "^15.2.0",
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "build": "electron-packager . UberEatsWebScraper"
   },
-  "author": "",
+  "author": "Annie Kwan",
   "license": "ISC"
 }
